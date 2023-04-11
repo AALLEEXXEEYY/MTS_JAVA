@@ -1,25 +1,21 @@
 package demo;
 
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.After;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
-import org.openqa.selenium.WebElement;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import str.Proverka_NT;
 import str.Zapolnit_zakaz;
-import str.Vibrat_tovar;
+import str.choose_tovar_page;
 import str.nazhat_na_oformlenie;
 
 
@@ -27,6 +23,14 @@ import str.nazhat_na_oformlenie;
 
 
 public class JDISitetest {
+
+
+    protected WebDriver driver;
+    private Zapolnit_zakaz formPage;
+    private Proverka_NT assertPage;
+    private choose_tovar_page home;
+    private nazhat_na_oformlenie card;
+
 
 
 
@@ -73,13 +77,6 @@ public class JDISitetest {
 
     }
 
-    protected WebDriver driver;
-    private Zapolnit_zakaz formPage;
-    private Proverka_NT assertPage;
-    private Vibrat_tovar home;
-    private nazhat_na_oformlenie card;
-
-
 
     @Before
     public void setup() {
@@ -87,7 +84,7 @@ public class JDISitetest {
 
         WebDriver driver = new ChromeDriver();
 
-        home = new Vibrat_tovar(driver);
+        home = new choose_tovar_page(driver);
         card = new nazhat_na_oformlenie(driver);
         formPage = new Zapolnit_zakaz(driver);
         assertPage = new Proverka_NT(driver);
@@ -112,23 +109,14 @@ public class JDISitetest {
 
         formPage.Delay_3()
                 .enterUsername("Шестаков Алексей Сергеевич")
-
                 .enterRegion("Россия")
-
                 .enterAdress("г. Москва, улица Улофа Пальме, д.1")
-
                 .enterTelephone("(000) 000-00-00")
-
                 .enterRecipient("Райан Гослинг Гослингов")
-
                 .enterStreet("ул Уличная")
-
                 .Delay_4()
-
                 .enterOffice("4")
-
                 .enterHouse("д. 77, корп. 2, стр. 3")
-
                 .clickConfirm();
 
 

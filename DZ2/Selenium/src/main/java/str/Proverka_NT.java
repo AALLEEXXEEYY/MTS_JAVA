@@ -28,8 +28,9 @@ public class Proverka_NT {
 
     public void errorBoxShouldBe(SoftAssertions softAssert, String expectedTitle) {
         softAssert.assertThat(errorbox.getText()).as("Окно ошибки не правильное")
-                .isEqualTo(expectedTitle); }
+                .isEqualTo(expectedTitle);
+    }
 }
 
 
-}
+
