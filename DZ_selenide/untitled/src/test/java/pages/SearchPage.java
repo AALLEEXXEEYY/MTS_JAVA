@@ -1,11 +1,8 @@
 package pages;
-
-
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.sleep;
-
 
 public class SearchPage {
 
@@ -17,15 +14,22 @@ public class SearchPage {
     private final static By FEEDBACK_HOTEL = By.xpath("/html/body/div[12]/div[3]/div[2]/div[2]/div/a[1]/div[3]/div[2]/div/div/div[2]/div[2]");
     private final static By PRICE_HOTEL = By.xpath("/html/body/div[12]/div[3]/div[2]/div[2]/div/a[1]/div[3]/div[3]/div[3]/div[2]/div/div[2]/span[1]");
     public String name;
+
     public String amountStars;
+
     public String ratingHotel;
+
     public String feedbackHotel;
+
     public String priceHotel;
+
     public SearchPage Showonmap() {
+
         $(SHOW_ON_MAP).click();
         return this;
     }
     public SearchPage saveData() {
+
         sleep(6000);
         $(HOTEL).hover();
         name=$(NAME_HOTEL).getText();
