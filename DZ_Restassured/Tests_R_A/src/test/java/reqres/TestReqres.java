@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 
 public class TestReqres {
 
-    private final static String URL = "https://reqres.in/api/";
+//    private final static String URL = "https://reqres.in/api/";
 
     private final ReqresSteps reqresSteps =new ReqresSteps();
     @ParameterizedTest

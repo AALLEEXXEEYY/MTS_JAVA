@@ -7,7 +7,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
 public class specHelper {
-    private final static String URL = "https://reqres.in/api/";
+    private final static String URL = "https://reqres.in";
 
     public static RequestSpecification getRequestSpec(){
 
