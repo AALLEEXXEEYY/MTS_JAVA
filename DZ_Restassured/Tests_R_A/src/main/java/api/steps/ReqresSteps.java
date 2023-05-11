@@ -107,13 +107,13 @@ public class ReqresSteps {
                 .response();
     }
 
-    public static Response DELETEUserSuccess(int httpstatus) {
+    public static Response DELETEUserSuccess(int httpstatus,String id) {
 
         return given()
                 .spec(specHelper.getRequestSpec())
                 .when()
                 .body("")
-                .delete("/api/users/2")
+                .delete(String.format("/api/users/%s",id))
                 .then()
                 .spec(specHelper.getResponseSpec(httpstatus))
                 .extract()
@@ -126,11 +126,49 @@ public class ReqresSteps {
                 .spec(specHelper.getRequestSpec())
                 .when()
                 .body("")
+                .delete("/api/users/%s")
+                .then()
+                .spec(specHelper.getResponseSpec(httpstatus))
+                .extract()
+                .response();
+    }
+
+
+    public static Response DELETEUserSuccess1(int httpstatus) {
+
+        return given()
+                .spec(specHelper.getRequestSpec())
+                .when()
+                .body("")
+                .delete("/api/users/2")
+                .then()
+                .spec(specHelper.getResponseSpec(httpstatus))
+                .extract()
+                .response();
+    }
+
+
+    public static Response DELETEUserUnsuccess1(int httpstatus) {
+
+        return given()
+                .spec(specHelper.getRequestSpec())
+                .when()
+                .body("")
                 .delete("/api/users/мамваимваиавиваиааваави")
                 .then()
                 .spec(specHelper.getResponseSpec(httpstatus))
                 .extract()
                 .response();
     }
+
+
+
+
+
+
+
+
+
+
 
 }
